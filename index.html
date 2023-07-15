@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hacker News</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <section id="hacker-news">
+      <form class='search-form'>
+        <h2>Search Hacker News</h2>
+        <input type="text" class='form-input' v-on:keydown="updateSearchBar" v-model="formInput">
+      </form>
+      
+      <section v-for="info in data" :key="info.objectID" class="stories">
+        <article key={objectID} class='story'>
+          <h4 class='title'>{{info.title}}</h4>
+          <p class='info'>
+            {{info.points}} points by <span>{{info.author}} | </span> {{info.num_comments}}&nbsp;
+            comments
+          </p>
+          <div>
+            <a
+              href={{info.url}}
+              class='read-link'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              read more
+            </a>
+            
+          </div>
+        </article>
+      </section>
+    </section>
+  </body>
+</html>
