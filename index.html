@@ -19,7 +19,8 @@
         <input type="text" class='form-input' v-on:keydown="updateSearchBar" v-model="formInput">
       </form>
       
-      <section v-for="info in data" :key="info.objectID" class="stories">
+      <section class="stories">
+        <div v-for="info in data" :key="info.objectID" >
         <article key={objectID} class='story'>
           <h4 class='title'>{{info.title}}</h4>
           <p class='info'>
@@ -38,6 +39,7 @@
             
           </div>
         </article>
+      </div>
       </section>
     </section>
   </body>
