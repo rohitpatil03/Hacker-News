@@ -18,6 +18,12 @@
       <input type="text" class='form-input' v-on:keydown="updateSearchBar" v-model="formInput">
     </form>
 
+    <div class="btn-container">
+      <button v-on:click="setPageNumber('prev')">Prev</button>
+      <p>{{pageNumber+1}} of {{nbPages}}</p>
+      <button v-on:click="setPageNumber('next')">Next</button>
+    </div>
+
     <section class="stories">
       <div v-for="info in data" :key="info.objectID">
         <article class='story'>
