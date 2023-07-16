@@ -20,8 +20,14 @@ const app = Vue.createApp({
             this.formInput = event.target.value;
             this.data = await fetchData(`${API_ENDPOINT}query=${this.formInput}&page=1`);
         },
+        removeBtn(id){
+            this.data = this.data.filter(item => item.objectID !== id)
+        }
         
-    }
+    },
+    async mounted() {
+        this.data = await fetchData(`${API_ENDPOINT}query=${this.formInput}&page=1`);
+      }
 })
 
 app.mount('#hacker-news')
