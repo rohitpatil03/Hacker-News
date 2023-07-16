@@ -30,11 +30,11 @@ const app = Vue.createApp({
             this.data = this.data.filter(item => item.objectID !== id)
         },
         setPageNumber(command){
-            if (command == 'prev' && this.pageNumber<=1){
+            if (command == 'prev' && this.pageNumber<1){
                 this.pageNumber = this.nbPages-1
                 this.updateData()
             }
-            else if (command == 'prev' && this.pageNumber>1){
+            else if (command == 'prev' && this.pageNumber>=1){
                 this.pageNumber = this.pageNumber - 1
                 this.updateData()
             }
